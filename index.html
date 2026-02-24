@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>r/campuswatch — quad girl & physics TA archive</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0d1117; color: #e6edf3; font-family: system-ui, -apple-system, sans-serif; }
+    button { cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <script type="text/babel">
+
+const threads = [
+  {
+    id: "sep-y1",
+    title: "ok who is violin girl in the quad she just made me late to econ",
+    date: "september, week three — year one",
+    tag: "sighting",
+    posts: [
+      { user: "since.september", text: "ok who is violin girl in the quad she just made me late to econ", ups: 847, time: "3h ago", top: true },
+      { user: "TAishot", text: "RIGHT i saw her last week she was playing barefoot on the grass like a feral woodland creature", ups: 612, time: "3h ago" },
+      { user: "quadgirlfan", text: "she's in my music theory class she's insane (positive)", ups: 445, time: "3h ago" },
+      { user: "Renai", text: "does she have a tiktok", ups: 203, time: "2h ago" },
+      { user: "since.september", text: "@Renai yes and you're welcome", ups: 389, time: "2h ago", reply: true },
+      { user: "wrongthread.again", text: "wait is this the econ study group chat", ups: 1200, time: "2h ago" },
+      { user: "TAishot", text: "@wrongthread.again NO", ups: 567, time: "2h ago", reply: true },
+      { user: "wrongthread.again", text: "sorry", ups: 934, time: "2h ago", reply: true },
+      { user: "since.september", text: "who's the tall guy who just stood there for like ten minutes btw", ups: 723, time: "2h ago" },
+      { user: "TAishot", text: "no idea but he looked like he forgot what year it was lmaooo", ups: 445, time: "2h ago" },
+      { user: "hes.so.fine", text: "that's the physics TA he's in my lecture he's. yeah.", ups: 891, time: "1h ago" },
+      { user: "steponmequadgirl", text: "@hes.so.fine he's. yeah. ??? elaborate", ups: 1100, time: "1h ago", reply: true },
+      { user: "hes.so.fine", text: "@steponmequadgirl I will not", ups: 778, time: "1h ago", reply: true },
+      { user: "steponmequadgirl", text: "he left right after she finished playing and then RAN to the physics building", ups: 654, time: "1h ago" },
+      { user: "TAishot", text: "RUNNING", ups: 445, time: "1h ago" },
+      { user: "hes.so.fine", text: "he does that sometimes. not usually. actually he's never done that before.", ups: 567, time: "1h ago" },
+      { user: "notadiagnosis", text: "not a diagnosis just an observation but she was compensating slightly with her bow arm in the last section. probably nothing. she's first year so.", ups: 234, time: "45m ago" },
+      { user: "Renai", text: "@notadiagnosis compensating how", ups: 189, time: "44m ago", reply: true },
+      { user: "notadiagnosis", text: "@Renai idk. just noticed. probably nothing.", ups: 156, time: "43m ago", reply: true },
+      { user: "ghost.note", text: "he'll be back.", ups: 2341, time: "30m ago", ghost: true },
+      { user: "since.september", text: "…okay then", ups: 445, time: "29m ago" },
+    ]
+  },
+  {
+    id: "oct-w2",
+    title: "quad girl was playing outside the physics building again and the TA came out and just. stood there.",
+    date: "october, week two — year one",
+    tag: "sighting",
+    posts: [
+      { user: "since.september", text: "quad girl was playing outside the physics building again and the TA came out and just. stood there. bro did not move for ten minutes", ups: 1203, time: "5h ago", top: true },
+      { user: "TAishot", text: "LMAOOO", ups: 445, time: "5h ago" },
+      { user: "steponmequadgirl", text: "he's so down bad", ups: 889, time: "5h ago" },
+      { user: "hes.so.fine", text: "he's just listening. it's a public space. anyone can stand there.", ups: 234, time: "4h ago" },
+      { user: "Renai", text: "@hes.so.fine you okay", ups: 678, time: "4h ago", reply: true },
+      { user: "hes.so.fine", text: "@Renai fine", ups: 1204, time: "4h ago", reply: true },
+      { user: "quadgirlfan", text: "in his defense she was playing something insane i stopped too", ups: 445, time: "4h ago" },
+      { user: "since.september", text: "quad girl and physics TA are going to be a thing just watch", ups: 1567, time: "3h ago" },
+      { user: "endgame.or.else", text: "CALLING IT NOW. CALLING IT.", ups: 891, time: "3h ago" },
+      { user: "TAishot", text: "@endgame.or.else they haven't even spoken", ups: 334, time: "3h ago", reply: true },
+      { user: "endgame.or.else", text: "@TAishot IRRELEVANT", ups: 1102, time: "3h ago", reply: true },
+      { user: "notadiagnosis", text: "not a diagnosis just an observation but she switched hands on her bow grip twice during that set. could be technique experimentation. probably nothing.", ups: 189, time: "2h ago" },
+      { user: "TAishot", text: "@notadiagnosis what does that mean", ups: 156, time: "2h ago", reply: true },
+      { user: "notadiagnosis", text: "@TAishot probably nothing! she's a performance major she knows what she's doing. just. noting it.", ups: 167, time: "2h ago", reply: true },
+    ]
+  },
+  {
+    id: "oct-w4",
+    title: "UPDATE: he was in line for coffee and LEFT THE LINE mid-order",
+    date: "october, week four — year one",
+    tag: "development",
+    posts: [
+      { user: "since.september", text: "UPDATE on quad girl x physics TA: he was in line for coffee at the union and she started playing outside and bro LEFT THE LINE mid-order and walked toward the sound", ups: 2341, time: "6h ago", top: true },
+      { user: "TAishot", text: "he left the LINE", ups: 1203, time: "6h ago" },
+      { user: "steponmequadgirl", text: "the COFFEE LINE", ups: 998, time: "6h ago" },
+      { user: "endgame.or.else", text: "I AM SO NORMAL ABOUT THIS (I am not normal about this)", ups: 1567, time: "5h ago" },
+      { user: "wrongthread.again", text: "wait who left what line", ups: 789, time: "5h ago" },
+      { user: "TAishot", text: "@wrongthread.again WRONG THREAD", ups: 445, time: "5h ago", reply: true },
+      { user: "wrongthread.again", text: "oh my bad. but also who left what line", ups: 1102, time: "5h ago", reply: true },
+      { user: "since.september", text: "this man is a SCIENTIST he understands NOTHING about himself", ups: 2109, time: "4h ago" },
+      { user: "hes.so.fine", text: "he always gets the same order too. oat milk latte. he really left his oat milk latte.", ups: 1678, time: "4h ago" },
+      { user: "Renai", text: "@hes.so.fine please", ups: 891, time: "4h ago", reply: true },
+      { user: "hes.so.fine", text: "@Renai I'M JUST SAYING", ups: 678, time: "4h ago", reply: true },
+      { user: "morals.exe", text: "guys maybe we should let them be?? we're lowkey way too nosy about their relationship", ups: 89, time: "3h ago" },
+      { user: "endgame.or.else", text: "someone tell him. someone tell HER. does anyone know if they read these threads", ups: 1203, time: "2h ago" },
+      { user: "ghost.note", text: "one of them does.", ups: 4521, time: "1h ago", ghost: true },
+      { user: "TAishot", text: "WHAT DOES THAT MEAN", ups: 889, time: "1h ago" },
+      { user: "since.september", text: "I need to lie down", ups: 1567, time: "58m ago" },
+    ]
+  },
+  {
+    id: "nov-w2",
+    title: "quad girl spotted at library, she acc locks in academically yall",
+    date: "november, week two — year one",
+    tag: "sighting",
+    posts: [
+      { user: "since.september", text: "quad girl was studying in the physics library. she brought her violin. she did not play it but it was there. on the table. next to her notes.", ups: 1890, time: "4h ago", top: true },
+      { user: "quadgirlfan", text: "she's locking in academically yall", ups: 778, time: "4h ago" },
+      { user: "TAishot", text: "she's also sitting three tables from the TA", ups: 1203, time: "3h ago" },
+      { user: "steponmequadgirl", text: "neither of them has looked up", ups: 445, time: "3h ago" },
+      { user: "endgame.or.else", text: "neither of them has looked up BUT", ups: 667, time: "3h ago" },
+      { user: "TAishot", text: "@endgame.or.else BUT???", ups: 889, time: "3h ago", reply: true },
+      { user: "since.september", text: "he moved seats. he was at table 7. he is now at table 5. \"to be closer to the whiteboard\"", ups: 2341, time: "2h ago" },
+      { user: "TAishot", text: "THE WHITEBOARD IS AT TABLE 7", ups: 1567, time: "2h ago" },
+      { user: "Renai", text: "I'm going to lose my mind", ups: 998, time: "2h ago" },
+      { user: "hes.so.fine", text: "maybe he just wanted a different seat", ups: 123, time: "2h ago" },
+      { user: "endgame.or.else", text: "@hes.so.fine I say this with love. stop.", ups: 1890, time: "2h ago", reply: true },
+      { user: "wrongthread.again", text: "wait is this the library booking system", ups: 2109, time: "1h ago" },
+      { user: "syabu", text: "@wrongthread.again it is not", ups: 445, time: "1h ago", reply: true },
+      { user: "wrongthread.again", text: "sorry. but also what's happening", ups: 778, time: "1h ago", reply: true },
+      { user: "since.september", text: "@wrongthread.again documenting two idiots falling in love in the physics library", ups: 3401, time: "1h ago", reply: true },
+      { user: "wrongthread.again", text: "oh sick can I stay", ups: 1203, time: "58m ago", reply: true },
+      { user: "since.september", text: "@wrongthread.again yes pull up a chair", ups: 2341, time: "57m ago", reply: true },
+      { user: "notadiagnosis", text: "not a diagnosis just an observation but she's been rotating her left wrist a lot between songs lately. could just be stretching. musicians do that.", ups: 234, time: "45m ago" },
+      { user: "quadgirlfan", text: "@notadiagnosis should we be worried", ups: 189, time: "44m ago", reply: true },
+      { user: "notadiagnosis", text: "@quadgirlfan no! probably not. she's a performance major, they're trained to manage this stuff. just. noting it for the archive.", ups: 167, time: "43m ago", reply: true },
+      { user: "since.september", text: "@notadiagnosis noted. adding it.", ups: 445, time: "40m ago", reply: true },
+      { user: "notadiagnosis", text: "@since.september yeah. just in case.", ups: 356, time: "39m ago", reply: true },
+    ]
+  },
+  {
+    id: "mar-y2",
+    title: "HE GOT SOAKED IN THE RAIN SO HER VIOLIN WOULDN'T GET WET",
+    date: "march — year two",
+    tag: "development",
+    posts: [
+      { user: "since.september", text: "OKAY SO", ups: 1203, time: "5h ago", top: true },
+      { user: "TAishot", text: "WHAT", ups: 889, time: "5h ago" },
+      { user: "since.september", text: "quad girl was playing in the rain right and TA showed up with an umbrella and held it over her and got absolutely soaked", ups: 3401, time: "5h ago" },
+      { user: "endgame.or.else", text: "WHAT", ups: 1567, time: "4h ago" },
+      { user: "steponmequadgirl", text: "AND???", ups: 998, time: "4h ago" },
+      { user: "since.september", text: "and she made room under the umbrella and they just. stood there. in the rain.", ups: 2890, time: "4h ago" },
+      { user: "quadgirlfan", text: "I'm going to cry", ups: 1102, time: "4h ago" },
+      { user: "TAishot", text: "did they kiss", ups: 778, time: "3h ago" },
+      { user: "since.september", text: "NO but", ups: 445, time: "3h ago" },
+      { user: "endgame.or.else", text: "@since.september BUT???", ups: 889, time: "3h ago", reply: true },
+      { user: "since.september", text: "he was completely soaked. he gave her the whole umbrella. he just stood there getting rained on.", ups: 3109, time: "3h ago" },
+      { user: "Renai", text: "the violin was fine though right", ups: 1890, time: "2h ago" },
+      { user: "since.september", text: "@Renai violin was fine", ups: 2341, time: "2h ago", reply: true },
+      { user: "Renai", text: "he knew what mattered", ups: 4521, time: "2h ago" },
+      { user: "hes.so.fine", text: "it's just an umbrella", ups: 89, time: "2h ago" },
+      { user: "endgame.or.else", text: "@hes.so.fine it was RAINING and he got SOAKED so her VIOLIN wouldn't get WET", ups: 2109, time: "2h ago", reply: true },
+      { user: "hes.so.fine", text: "…okay that's actually really", ups: 1567, time: "1h ago", reply: true },
+      { user: "hes.so.fine", text: "never mind", ups: 1890, time: "1h ago", reply: true },
+      { user: "notadiagnosis", text: "not a diagnosis just an observation but she was shaking a little after she stopped playing. could be cold. it was raining.", ups: 234, time: "58m ago" },
+      { user: "TAishot", text: "@notadiagnosis it was cold tho right", ups: 189, time: "57m ago", reply: true },
+      { user: "notadiagnosis", text: "@TAishot yeah. yeah probably that.", ups: 356, time: "56m ago", reply: true },
+      { user: "morals.exe", text: "at what point do we just let them have their moment in peace", ups: 67, time: "45m ago" },
+      { user: "wrongthread.again", text: "wait is this the meteorology club", ups: 2109, time: "40m ago" },
+      { user: "TAishot", text: "@wrongthread.again NO but stay it's better", ups: 1567, time: "39m ago", reply: true },
+    ]
+  },
+  {
+    id: "apr-y2",
+    title: "quad girl caught being chased by Professor Yano AGAIN someone save her",
+    date: "april — year two",
+    tag: "chaos",
+    posts: [
+      { user: "since.september", text: "quad girl caught being chased by Professor Yano AGAIN someone save her", ups: 2890, time: "6h ago", top: true },
+      { user: "TAishot", text: "he had the bow raised and EVERYTHING", ups: 1567, time: "6h ago" },
+      { user: "steponmequadgirl", text: "she was LAUGHING while running", ups: 2109, time: "5h ago" },
+      { user: "endgame.or.else", text: "this is the most her thing I've ever heard", ups: 1890, time: "5h ago" },
+      { user: "Renai", text: "tell TA guy", ups: 1203, time: "5h ago" },
+      { user: "TAishot", text: "he'll save her", ups: 998, time: "5h ago" },
+      { user: "since.september", text: "update: TA guy was not informed in time. Yano caught up. they had a Whole Conversation outside the music building.", ups: 1567, time: "4h ago" },
+      { user: "quadgirlfan", text: "was it bad", ups: 445, time: "4h ago" },
+      { user: "since.september", text: "unclear. Yano looked intense. she looked like she was trying not to smile.", ups: 2341, time: "4h ago" },
+      { user: "hes.so.fine", text: "@since.september Yano's actually a good professor when he's not throwing things", ups: 334, time: "3h ago", reply: true },
+      { user: "TAishot", text: "@hes.so.fine when is he not throwing things", ups: 778, time: "3h ago", reply: true },
+      { user: "hes.so.fine", text: "@TAishot …fair", ups: 889, time: "3h ago", reply: true },
+      { user: "ghost.note", text: "the ones who fight her hardest always come around. watch.", ups: 3890, time: "2h ago", ghost: true },
+      { user: "endgame.or.else", text: "@ghost.note STAY AND EXPLAIN", ups: 1102, time: "2h ago", reply: true },
+      { user: "since.september", text: "update update: she was in studio b tonight and Yano sat outside the door and listened for twenty minutes and left without saying anything", ups: 2890, time: "1h ago" },
+      { user: "quadgirlfan", text: "oh he's cooked", ups: 1567, time: "1h ago" },
+      { user: "Renai", text: "he loves her playing. he just doesn't know how to say it yet.", ups: 3109, time: "1h ago" },
+      { user: "steponmequadgirl", text: "that's two of them then", ups: 2341, time: "58m ago" },
+      { user: "TAishot", text: "LMAOOO", ups: 778, time: "57m ago" },
+      { user: "notadiagnosis", text: "hey genuine question has anyone seen her play up close lately. the bow pressure thing is still there. and her left hand positioning has shifted.", ups: 456, time: "45m ago" },
+      { user: "quadgirlfan", text: "@notadiagnosis shifted how", ups: 334, time: "44m ago", reply: true },
+      { user: "notadiagnosis", text: "@quadgirlfan compensating for something probably. or new technique. she's always experimenting so. probably nothing. she'd know if something was wrong.", ups: 289, time: "43m ago", reply: true },
+      { user: "since.september", text: "@notadiagnosis adding it to the archive. just in case.", ups: 445, time: "40m ago", reply: true },
+      { user: "notadiagnosis", text: "@since.september yeah. just in case.", ups: 567, time: "39m ago", reply: true },
+    ]
+  },
+  {
+    id: "oct-y3",
+    title: "CONFIRMED: quad girl and physics TA are together",
+    date: "october — year three",
+    tag: "🎉 confirmed",
+    posts: [
+      { user: "since.september", text: "CONFIRMED: quad girl and physics TA are together", ups: 5621, time: "8h ago", top: true },
+      { user: "TAishot", text: "FINALLY", ups: 3401, time: "8h ago" },
+      { user: "endgame.or.else", text: "IT'S BEEN TWO YEARS", ups: 2890, time: "7h ago" },
+      { user: "Renai", text: "three actually. it started september year one.", ups: 4521, time: "7h ago" },
+      { user: "endgame.or.else", text: "THREE YEARS AND THEY FINALLY", ups: 2341, time: "7h ago" },
+      { user: "steponmequadgirl", text: "I have never been more invested in two people I've never spoken to", ups: 3109, time: "6h ago" },
+      { user: "quadgirlfan", text: "she played outside his building yesterday and he came out and just leaned on the wall and listened for the whole thing and when she finished he brought her a coffee", ups: 4890, time: "6h ago" },
+      { user: "TAishot", text: "THE OAT MILK LATTE", ups: 3401, time: "6h ago" },
+      { user: "hes.so.fine", text: "…good for them I guess", ups: 2109, time: "5h ago" },
+      { user: "Renai", text: "@hes.so.fine growth", ups: 1890, time: "5h ago", reply: true },
+      { user: "hes.so.fine", text: "@Renai don't push it", ups: 2341, time: "5h ago", reply: true },
+      { user: "wrongthread.again", text: "wait are they the couple from the library", ups: 1567, time: "4h ago" },
+      { user: "since.september", text: "@wrongthread.again yes", ups: 998, time: "4h ago", reply: true },
+      { user: "wrongthread.again", text: "THEY GOT TOGETHER??? I've been following this since table five", ups: 2890, time: "4h ago", reply: true },
+      { user: "morals.exe", text: "okay I know I always say this but can we give them some privacy now that they're actually together", ups: 112, time: "3h ago" },
+      { user: "syabu", text: "@morals.exe syabu lil bro", ups: 4521, time: "3h ago", reply: true },
+      { user: "endgame.or.else", text: "do they know about the threads", ups: 1203, time: "2h ago" },
+      { user: "since.september", text: "quad girl definitely knows. she liked the compilation video.", ups: 3401, time: "2h ago" },
+      { user: "TAishot", text: "does HE know", ups: 2109, time: "2h ago" },
+      { user: "since.september", text: "…he follows the account.", ups: 5109, time: "1h ago" },
+      { user: "TAishot", text: "HE FOLLOWS THE ACCOUNT", ups: 3890, time: "1h ago" },
+      { user: "endgame.or.else", text: "HE'S BEEN READING THESE THE WHOLE TIME", ups: 4521, time: "1h ago" },
+      { user: "steponmequadgirl", text: "PHYSICS TA IF YOU'RE READING THIS WE'RE HAPPY FOR YOU BRO", ups: 5621, time: "58m ago" },
+      { user: "Renai", text: "@steponmequadgirl also you owe that person a coffee. you left them in line.", ups: 3109, time: "57m ago", reply: true },
+      { user: "notadiagnosis", text: "hey this is probably not the moment but has anyone noticed her hands lately. in the recent videos.", ups: 789, time: "45m ago" },
+      { user: "quadgirlfan", text: "@notadiagnosis what about them", ups: 445, time: "44m ago", reply: true },
+      { user: "notadiagnosis", text: "@quadgirlfan the left one. the tremor. it's more visible than it was in september.", ups: 1102, time: "43m ago", reply: true },
+      { user: "TAishot", text: "@notadiagnosis tremor???", ups: 667, time: "42m ago", reply: true },
+      { user: "notadiagnosis", text: "@TAishot I'm not diagnosing anything. I'm just. it's in the archive now. since.september has it.", ups: 889, time: "41m ago", reply: true },
+      { user: "since.september", text: "@notadiagnosis I have it. I see it.", ups: 1203, time: "40m ago", reply: true },
+      { user: "since.september", text: "I hope she's okay.", ups: 3401, time: "39m ago" },
+      { user: "notadiagnosis", text: "@since.september yeah. me too.", ups: 2109, time: "38m ago", reply: true },
+      { user: "ghost.note", text: "told you he'd be back.", ups: 6234, time: "20m ago", ghost: true },
+      { user: "since.september", text: "since september. it's been since september. I have the receipts. I have ALL the receipts.", ups: 4521, time: "15m ago" },
+      { user: "TAishot", text: "@since.september the archive", ups: 2890, time: "14m ago", reply: true },
+      { user: "since.september", text: "@TAishot the archive.", ups: 3401, time: "13m ago", reply: true },
+    ]
+  },
+  {
+    id: "tue-arg",
+    title: "did anyone hear the argument at (dorm name) about twenty minutes ago",
+    date: "tuesday, 9:47pm — year three",
+    tag: "⚠️ cw",
+    posts: [
+      { user: "since.september", text: "hey. did anyone hear the argument at (dorm name) about twenty minutes ago.", ups: 2341, time: "22m ago", top: true },
+      { user: "TAishot", text: "which floor", ups: 778, time: "21m ago" },
+      { user: "since.september", text: "third", ups: 998, time: "21m ago" },
+      { user: "endgame.or.else", text: "…it's TA and quad girl isn't it", ups: 1567, time: "20m ago" },
+      { user: "since.september", text: "yeah", ups: 1890, time: "20m ago" },
+      { user: "TAishot", text: "WHAT", ups: 889, time: "19m ago" },
+      { user: "steponmequadgirl", text: "ABOUT WHAT", ups: 667, time: "19m ago" },
+      { user: "TAishot", text: "WHO STARTED IT", ups: 445, time: "19m ago" },
+      { user: "since.september", text: "I couldn't hear everything. I heard her violin stop. then voices. then the door.", ups: 2890, time: "18m ago" },
+      { user: "quadgirlfan", text: "she slammed the door?", ups: 1102, time: "17m ago" },
+      { user: "since.september", text: "yeah.", ups: 2341, time: "17m ago" },
+      { user: "quadgirlfan", text: "quad girl doesn't slam doors", ups: 3109, time: "16m ago" },
+      { user: "Renai", text: "no she doesn't", ups: 2890, time: "16m ago" },
+      { user: "endgame.or.else", text: "this isn't funny. why isn't anyone making it funny. make it funny.", ups: 4521, time: "15m ago" },
+      { user: "TAishot", text: "…", ups: 1203, time: "15m ago" },
+      { user: "steponmequadgirl", text: "…", ups: 998, time: "15m ago" },
+      { user: "hes.so.fine", text: "what did he say", ups: 1567, time: "14m ago" },
+      { user: "since.september", text: "I don't want to spread it without context", ups: 2109, time: "14m ago" },
+      { user: "hes.so.fine", text: "@since.september that bad?", ups: 1890, time: "13m ago", reply: true },
+      { user: "since.september", text: "@hes.so.fine I saw her leave. she had her violin. she looked.", ups: 3401, time: "13m ago", reply: true },
+      { user: "Renai", text: "@since.september looked how", ups: 2341, time: "12m ago", reply: true },
+      { user: "since.september", text: "@Renai like she wasn't going to play for a while.", ups: 5621, time: "12m ago", reply: true },
+      { user: "quadgirlfan", text: "…", ups: 2890, time: "11m ago" },
+      { user: "endgame.or.else", text: "no", ups: 3401, time: "11m ago" },
+      { user: "notadiagnosis", text: "guys. the hands thing. the tremor I've been noting since year one. if she stops playing for a while. voluntarily or not. I just. the progression of what I've been seeing.", ups: 2109, time: "10m ago" },
+      { user: "notadiagnosis", text: "I'm not diagnosing anything. I just hope she's okay.", ups: 3890, time: "10m ago" },
+      { user: "Renai", text: "@notadiagnosis we know. we hope so too.", ups: 2341, time: "9m ago", reply: true },
+      { user: "morals.exe", text: "guys maybe we should let them be. this isn't our business.", ups: 334, time: "8m ago" },
+      { user: "syabu", text: "@morals.exe syabu lil bro", ups: 2890, time: "8m ago", reply: true },
+      { user: "wrongthread.again", text: "wait what happened I just got here", ups: 889, time: "7m ago" },
+      { user: "TAishot", text: "@wrongthread.again not the time wrongthread", ups: 1102, time: "7m ago", reply: true },
+      { user: "wrongthread.again", text: "oh. sorry.", ups: 1567, time: "7m ago", reply: true },
+      { user: "since.september", text: "he came out after her. stood in the hallway for a long time.", ups: 2890, time: "5m ago" },
+      { user: "hes.so.fine", text: "@since.september is he okay", ups: 1203, time: "4m ago", reply: true },
+      { user: "since.september", text: "@hes.so.fine no.", ups: 3401, time: "4m ago", reply: true },
+      { user: "hes.so.fine", text: "…for what it's worth I hope they work it out. I actually mean it.", ups: 4521, time: "3m ago" },
+      { user: "Renai", text: "@hes.so.fine we know you do.", ups: 2890, time: "3m ago", reply: true },
+      { user: "endgame.or.else", text: "this isn't fun anymore", ups: 5109, time: "2m ago" },
+      { user: "since.september", text: "no. it's not.", ups: 4521, time: "2m ago" },
+      { user: "ghost.note", text: "some things can't be documented.", ups: 7823, time: "1m ago", ghost: true },
+      { user: "since.september", text: "yeah.", ups: 5621, time: "just now" },
+    ]
+  },
+  {
+    id: "fri-concert",
+    title: "🎻 spring concert LIVE THREAD — quad girl closing act",
+    date: "friday — spring concert, year three",
+    tag: "🔴 live",
+    posts: [
+      { user: "since.september", text: "quad girl is closing the spring concert tonight. three years of this and she's the closing act. go.", ups: 3401, time: "2h ago", top: true },
+      { user: "endgame.or.else", text: "ALREADY SEATED FRONT ROW", ups: 1890, time: "2h ago" },
+      { user: "TAishot", text: "she's been practicing the Tzigane for weeks this is going to be INSANE", ups: 1567, time: "2h ago" },
+      { user: "quadgirlfan", text: "I've heard her playing it through the music building walls it's so good", ups: 1203, time: "1h ago" },
+      { user: "steponmequadgirl", text: "TA guy spotted?", ups: 889, time: "45m ago" },
+      { user: "since.september", text: "not yet.", ups: 778, time: "45m ago" },
+      { user: "endgame.or.else", text: "he'll be here. he always comes.", ups: 1102, time: "44m ago" },
+      { user: "wrongthread.again", text: "wait is this the spring concert thread or the", ups: 667, time: "30m ago" },
+      { user: "TAishot", text: "@wrongthread.again stay wrongthread. stay.", ups: 1567, time: "30m ago", reply: true },
+      { user: "wrongthread.again", text: "okay", ups: 2341, time: "29m ago", reply: true },
+      { user: "since.september", text: "she's on.", ups: 2890, time: "15m ago" },
+      { user: "TAishot", text: "…", ups: 1203, time: "14m ago" },
+      { user: "steponmequadgirl", text: "…", ups: 998, time: "14m ago" },
+      { user: "quadgirlfan", text: "wait", ups: 1567, time: "13m ago" },
+      { user: "endgame.or.else", text: "why does it sound like that", ups: 2109, time: "13m ago" },
+      { user: "Renai", text: "it sounds correct", ups: 3401, time: "12m ago" },
+      { user: "TAishot", text: "@Renai yeah that's the problem", ups: 4521, time: "12m ago", reply: true },
+      { user: "quadgirlfan", text: "that's not her playing", ups: 3890, time: "11m ago" },
+      { user: "since.september", text: "the notes are right.", ups: 2341, time: "11m ago" },
+      { user: "endgame.or.else", text: "@since.september the notes are right but where is SHE", ups: 4890, time: "10m ago", reply: true },
+      { user: "Renai", text: "she's not in it", ups: 3401, time: "10m ago" },
+      { user: "quadgirlfan", text: "something's wrong. something's really wrong.", ups: 2890, time: "9m ago" },
+      { user: "steponmequadgirl", text: "she's playing it like it belongs to someone else", ups: 4521, time: "9m ago" },
+      { user: "since.september", text: "it does belong to someone else tonight.", ups: 5621, time: "8m ago" },
+      { user: "endgame.or.else", text: "@since.september don't say that", ups: 2109, time: "8m ago", reply: true },
+      { user: "notadiagnosis", text: "her left hand.", ups: 3890, time: "7m ago" },
+      { user: "TAishot", text: "@notadiagnosis what", ups: 1567, time: "7m ago", reply: true },
+      { user: "notadiagnosis", text: "@TAishot I can see it from here. the tremor. she's managing it. she's been managing it the whole performance.", ups: 4521, time: "6m ago", reply: true },
+      { user: "notadiagnosis", text: "she's been managing it for a long time.", ups: 5109, time: "6m ago" },
+      { user: "quadgirlfan", text: "@notadiagnosis how long", ups: 2341, time: "5m ago", reply: true },
+      { user: "notadiagnosis", text: "@quadgirlfan since september.", ups: 7823, time: "5m ago", reply: true },
+      { user: "since.september", text: "…", ups: 3401, time: "4m ago" },
+      { user: "notadiagnosis", text: "@since.september I'm sorry. I kept saying probably nothing.", ups: 4521, time: "4m ago", reply: true },
+      { user: "since.september", text: "@notadiagnosis we both kept saying probably nothing.", ups: 5621, time: "4m ago", reply: true },
+      { user: "hes.so.fine", text: "has anyone seen TA guy", ups: 2890, time: "3m ago" },
+      { user: "TAishot", text: "…", ups: 1203, time: "3m ago" },
+      { user: "endgame.or.else", text: "no", ups: 1567, time: "3m ago" },
+      { user: "hes.so.fine", text: "is he here", ups: 2341, time: "3m ago" },
+      { user: "since.september", text: "I don't see him.", ups: 3109, time: "2m ago" },
+      { user: "endgame.or.else", text: "he'll come. he always", ups: 1890, time: "2m ago" },
+      { user: "Renai", text: "@endgame.or.else endgame.", ups: 2890, time: "2m ago", reply: true },
+      { user: "endgame.or.else", text: "he'll come.", ups: 4521, time: "2m ago" },
+      { user: "since.september", text: "she's finished.", ups: 2341, time: "1m ago" },
+      { user: "TAishot", text: "the applause is so", ups: 3401, time: "1m ago" },
+      { user: "quadgirlfan", text: "yeah", ups: 4521, time: "1m ago" },
+      { user: "steponmequadgirl", text: "that's not the applause she deserves", ups: 5621, time: "1m ago" },
+      { user: "since.september", text: "no.", ups: 4890, time: "58s ago" },
+      { user: "wrongthread.again", text: "I don't understand what happened", ups: 2890, time: "45s ago" },
+      { user: "Renai", text: "@wrongthread.again she played it right. for once. exactly right. and it was the saddest thing I've ever heard.", ups: 8934, time: "40s ago", reply: true },
+      { user: "endgame.or.else", text: "where is he", ups: 3401, time: "30s ago" },
+      { user: "since.september", text: "I don't know.", ups: 2890, time: "25s ago" },
+      { user: "quadgirlfan", text: "chat what happened", ups: 2341, time: "20s ago" },
+      { user: "ghost.note", text: "she played it for him. the wrong version. the one he asked for. I hope he heard it.", ups: 12403, time: "15s ago", ghost: true },
+      { user: "notadiagnosis", text: "I've been noting things since september year one. the bow arm. the wrist. the tremor. I kept saying probably nothing.", ups: 6234, time: "12s ago" },
+      { user: "notadiagnosis", text: "I should have said something louder.", ups: 7823, time: "12s ago" },
+      { user: "since.september", text: "@notadiagnosis we didn't know. we couldn't have known.", ups: 5621, time: "10s ago", reply: true },
+      { user: "notadiagnosis", text: "@since.september yeah.", ups: 4521, time: "9s ago", reply: true },
+      { user: "notadiagnosis", text: "yeah.", ups: 5109, time: "8s ago" },
+      { user: "TAishot", text: "…", ups: 2890, time: "6s ago" },
+      { user: "endgame.or.else", text: "…", ups: 3401, time: "5s ago" },
+      { user: "steponmequadgirl", text: "…", ups: 2341, time: "4s ago" },
+      { user: "since.september", text: "I've been documenting since september.", ups: 7823, time: "3s ago" },
+      { user: "since.september", text: "I don't know how to document this.", ups: 9234, time: "2s ago" },
+      { user: "Renai", text: "@since.september you don't have to.", ups: 6234, time: "1s ago", reply: true },
+      { user: "since.september", text: "yeah.", ups: 5621, time: "just now" },
+      { user: "since.september", text: "yeah okay.", ups: 8934, time: "just now" },
+    ]
+  }
+];
+
+const tagColors = {
+  "sighting": { bg: "#1e3a5f", text: "#93c5fd" },
+  "development": { bg: "#3b1f5e", text: "#c4b5fd" },
+  "chaos": { bg: "#4a2000", text: "#fdba74" },
+  "🎉 confirmed": { bg: "#14532d", text: "#86efac" },
+  "⚠️ cw": { bg: "#450a0a", text: "#fca5a5" },
+  "🔴 live": { bg: "#450a0a", text: "#fca5a5" },
+};
+
+const userColors = {
+  "since.september": "#a78bfa",
+  "TAishot": "#fb923c",
+  "quadgirlfan": "#f472b6",
+  "steponmequadgirl": "#fb7185",
+  "Renai": "#38bdf8",
+  "morals.exe": "#4ade80",
+  "syabu": "#facc15",
+  "endgame.or.else": "#e879f9",
+  "wrongthread.again": "#2dd4bf",
+  "hes.so.fine": "#f87171",
+  "notadiagnosis": "#34d399",
+  "ghost.note": "#9ca3af",
+};
+
+function fmt(n) { return n >= 1000 ? (n/1000).toFixed(1)+"k" : n; }
+
+function Tag({ tag }) {
+  const c = tagColors[tag] || { bg: "#1f2937", text: "#9ca3af" };
+  return React.createElement("span", {
+    style: { background: c.bg, color: c.text, fontSize: "11px", padding: "2px 8px", borderRadius: "4px", fontWeight: 600, whiteSpace: "nowrap" }
+  }, tag);
+}
+
+function Post({ post }) {
+  const col = userColors[post.user] || "#e6edf3";
+  const ups = post.ups;
+  const upCol = ups > 5000 ? "#f97316" : ups > 2000 ? "#a78bfa" : ups > 1000 ? "#60a5fa" : "#8b949e";
+  return React.createElement("div", {
+    style: {
+      background: post.ghost ? "#0d1117" : "#161b22",
+      border: `1px solid ${post.ghost ? "#30363d" : "#21262d"}`,
+      borderRadius: "6px",
+      padding: "10px 12px",
+      marginLeft: post.reply ? "16px" : "0",
+      borderLeft: post.reply ? "2px solid #30363d" : "none",
+    }
+  },
+    React.createElement("div", { style: { display: "flex", alignItems: "center", gap: "6px", marginBottom: "5px", flexWrap: "wrap" } },
+      React.createElement("span", { style: { fontSize: "13px", fontWeight: 700, color: col } }, (post.ghost ? "👻 " : "") + post.user),
+      post.top && React.createElement("span", { style: { fontSize: "10px", background: "#1f2937", color: "#6b7280", padding: "1px 5px", borderRadius: "4px" } }, "OP"),
+      React.createElement("span", { style: { fontSize: "11px", color: "#6b7280" } }, post.time)
+    ),
+    React.createElement("div", {
+      style: { fontSize: "14px", lineHeight: 1.55, color: post.ghost ? "#9ca3af" : "#e6edf3", fontStyle: post.ghost ? "italic" : "normal", wordBreak: "break-word" }
+    }, post.text),
+    React.createElement("div", { style: { display: "flex", alignItems: "center", gap: "10px", marginTop: "8px" } },
+      React.createElement("div", { style: { display: "flex", alignItems: "center", gap: "4px" } },
+        React.createElement("span", { style: { color: "#8b949e", fontSize: "13px" } }, "▲"),
+        React.createElement("span", { style: { color: upCol, fontWeight: ups > 1000 ? 700 : 400, fontSize: "12px", minWidth: "28px" } }, fmt(ups)),
+        React.createElement("span", { style: { color: "#8b949e", fontSize: "13px" } }, "▼")
+      ),
+      React.createElement("span", { style: { fontSize: "11px", color: "#8b949e" } }, "reply"),
+      React.createElement("span", { style: { fontSize: "11px", color: "#8b949e" } }, "share")
+    )
+  );
+}
+
+function App() {
+  const [active, setActive] = React.useState(null);
+  const thread = threads.find(t => t.id === active);
+
+  const headerStyle = {
+    background: "#161b22", borderBottom: "1px solid #30363d",
+    padding: "12px 16px", position: "sticky", top: 0, zIndex: 10,
+    display: "flex", alignItems: "center", gap: "10px",
+  };
+
+  const wrapStyle = { maxWidth: "700px", margin: "0 auto", padding: "12px 12px" };
+
+  if (active && thread) return React.createElement("div", { style: { background: "#0d1117", minHeight: "100vh", color: "#e6edf3", fontFamily: "system-ui,sans-serif" } },
+    React.createElement("div", { style: headerStyle },
+      React.createElement("button", {
+        onClick: () => setActive(null),
+        style: { background: "#21262d", border: "1px solid #30363d", color: "#e6edf3", padding: "6px 12px", borderRadius: "6px", fontSize: "13px", cursor: "pointer" }
+      }, "← back"),
+      React.createElement("span", { style: { fontSize: "13px", color: "#8b949e" } }, "r/campuswatch")
+    ),
+    React.createElement("div", { style: wrapStyle },
+      React.createElement("div", {
+        style: { background: "#161b22", border: "1px solid #30363d", borderRadius: "8px", padding: "14px 14px", marginBottom: "14px" }
+      },
+        React.createElement("div", { style: { display: "flex", gap: "8px", alignItems: "center", marginBottom: "8px", flexWrap: "wrap" } },
+          React.createElement(Tag, { tag: thread.tag }),
+          React.createElement("span", { style: { fontSize: "11px", color: "#8b949e" } }, thread.date)
+        ),
+        React.createElement("div", { style: { fontSize: "16px", fontWeight: 700, lineHeight: 1.4, marginBottom: "8px" } }, thread.title),
+        React.createElement("div", { style: { fontSize: "12px", color: "#8b949e" } },
+          "posted by ", React.createElement("span", { style: { color: "#a78bfa" } }, "since.september"),
+          " · ", thread.posts.length, " comments"
+        )
+      ),
+      React.createElement("div", { style: { display: "flex", flexDirection: "column", gap: "4px" } },
+        thread.posts.map((p, i) => React.createElement(Post, { key: i, post: p }))
+      ),
+      thread.posts.some(p => p.ghost) && React.createElement("div", {
+        style: { marginTop: "16px", textAlign: "center", fontSize: "12px", color: "#6b7280", fontStyle: "italic", padding: "8px" }
+      }, "👻 ghost.note has left the thread"),
+      React.createElement("div", { style: { height: "40px" } })
+    )
+  );
+
+  return React.createElement("div", { style: { background: "#0d1117", minHeight: "100vh", color: "#e6edf3", fontFamily: "system-ui,sans-serif" } },
+    React.createElement("div", { style: headerStyle },
+      React.createElement("div", null,
+        React.createElement("div", { style: { fontSize: "17px", fontWeight: 700 } }, "r/campuswatch"),
+        React.createElement("div", { style: { fontSize: "12px", color: "#8b949e" } }, "quad girl & physics TA · archive")
+      )
+    ),
+    React.createElement("div", { style: wrapStyle },
+      React.createElement("div", { style: { fontSize: "12px", color: "#8b949e", marginBottom: "8px" } },
+        threads.length, " threads · documented by since.september"
+      ),
+      threads.map(t => React.createElement("div", {
+        key: t.id,
+        onClick: () => setActive(t.id),
+        style: { background: "#161b22", border: "1px solid #30363d", borderRadius: "8px", padding: "12px 14px", marginBottom: "8px", cursor: "pointer" },
+        onMouseEnter: e => e.currentTarget.style.borderColor = "#8b949e",
+        onMouseLeave: e => e.currentTarget.style.borderColor = "#30363d",
+      },
+        React.createElement("div", { style: { display: "flex", gap: "8px", alignItems: "center", marginBottom: "7px", flexWrap: "wrap" } },
+          React.createElement(Tag, { tag: t.tag }),
+          React.createElement("span", { style: { fontSize: "11px", color: "#8b949e" } }, t.date)
+        ),
+        React.createElement("div", { style: { fontSize: "15px", fontWeight: 600, lineHeight: 1.4, marginBottom: "8px" } }, t.title),
+        React.createElement("div", { style: { display: "flex", gap: "12px", fontSize: "11px", color: "#8b949e", flexWrap: "wrap" } },
+          React.createElement("span", null, "💬 ", t.posts.length),
+          React.createElement("span", null, "by ", React.createElement("span", { style: { color: "#a78bfa" } }, "since.september")),
+          t.posts.some(p => p.ghost) && React.createElement("span", { style: { color: "#6b7280" } }, "👻 ghost.note appeared")
+        )
+      )),
+      React.createElement("div", {
+        style: { textAlign: "center", padding: "24px 8px", fontSize: "13px", color: "#6b7280", fontStyle: "italic", lineHeight: 1.7 }
+      },
+        "\"I've been documenting since september.", React.createElement("br"), "I don't know how to document this.\"",
+        React.createElement("div", { style: { marginTop: "6px", fontSize: "11px" } }, "— since.september, final thread")
+      )
+    )
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(React.createElement(App));
+  </script>
+</body>
+</html>
